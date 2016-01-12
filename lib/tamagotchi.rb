@@ -26,4 +26,8 @@ class Tamagotchi
     @food_level > 0
   end
 
+  define_method(:set_food_level) do |new_level|
+    @food_level = new_level
+  end
+
 end
