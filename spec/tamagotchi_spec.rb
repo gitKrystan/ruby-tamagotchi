@@ -78,4 +78,20 @@ describe(Tamagotchi) do
       expect(my_pet.sleep_level()).to(eq(10))
     end
   end
+
+  describe('#play') do
+    it('adds to activity_level by the amount it naps') do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.set_activity_level(9)
+      my_pet.play(1)
+      expect(my_pet.activity_level()).to(eq(10))
+    end
+
+    it('does not cause activity_level to exceed 10') do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.set_activity_level(9)
+      my_pet.play(2)
+      expect(my_pet.activity_level()).to(eq(10))
+    end
+  end
 end

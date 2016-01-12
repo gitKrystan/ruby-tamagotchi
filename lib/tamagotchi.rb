@@ -61,4 +61,12 @@ class Tamagotchi
       @sleep_level = 10
     end
   end
+
+  define_method(:play) do |amount|
+    @activity_level += amount
+
+    if @activity_level > 10
+      @activity_level = 10
+    end
+  end
 end
