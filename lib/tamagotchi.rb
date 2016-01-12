@@ -23,7 +23,9 @@ class Tamagotchi
   end
 
   define_method(:is_alive?) do
-    @food_level > 0
+    (@food_level > 0) &&
+      (@sleep_level > 0) &&
+      (@activity_level > 0)
   end
 
   define_method(:set_food_level) do |new_level|
@@ -40,5 +42,9 @@ class Tamagotchi
     if @food_level > 10
       @food_level = 10
     end
+  end
+
+  define_method(:set_sleep_level) do |new_level|
+    @sleep_level = new_level
   end
 end
