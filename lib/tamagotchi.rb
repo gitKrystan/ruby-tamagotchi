@@ -42,6 +42,8 @@ class Tamagotchi
 
   define_method(:time_passes) do
     @food_level -= 1
+    @sleep_level -=1
+    @activity_level -=1
   end
 
   define_method(:feed) do |amount|
