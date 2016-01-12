@@ -30,4 +30,15 @@ class Tamagotchi
     @food_level = new_level
   end
 
+  define_method(:time_passes) do
+    @food_level -= 1
+  end
+
+  define_method(:feed) do |amount|
+    @food_level += amount
+
+    if @food_level > 10
+      @food_level = 10
+    end
+  end
 end

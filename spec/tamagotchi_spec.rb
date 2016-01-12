@@ -24,4 +24,28 @@ describe(Tamagotchi) do
       expect(my_pet.is_alive?()).to(eq(false))
     end
   end
+
+  describe('#time_passes') do
+    it('decreases the amount of food the Tamagotchi has left by 1') do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.time_passes()
+      expect(my_pet.food_level()).to(eq(9))
+    end
+  end
+
+  describe('#feed') do
+    it('adds to the amount of food the Tamagotchi has left by the amount it is fed') do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.set_food_level(9)
+      my_pet.feed(1)
+      expect(my_pet.food_level()).to(eq(10))
+    end
+
+    it('does not cause the amount of food to exceed 10') do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.set_food_level(9)
+      my_pet.feed(2)
+      expect(my_pet.food_level()).to(eq(10))
+    end
+  end
 end
