@@ -29,6 +29,12 @@ describe(Tamagotchi) do
       my_pet.set_sleep_level(0)
       expect(my_pet.is_alive?()).to(eq(false))
     end
+
+    it("is dead if the activity level is 0") do
+      my_pet = Tamagotchi.new("Jon Hamm")
+      my_pet.set_activity_level(0)
+      expect(my_pet.is_alive?()).to(eq(false))
+    end
   end
 
   describe('#time_passes') do
