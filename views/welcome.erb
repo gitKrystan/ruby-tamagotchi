@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><small>lil' </small><%= @tamagotchi_name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <p>
+      <%= @tamagotchi_name %> is <%= @age %> turns old and has <%= @money %> Tamagotchi tokens to spend.
+    </p>
+    <p>
+      You can spend these tokens on food, sleep, and play to keep your Tamagotchi alive. If any of your Tamagotchi's levels drop to zero, the Tamagotchi will die.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <form action="/round" method="post">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+      <br>
+      <button class="btn btn-default" type="submit">Begin</button>
+    </div>
+  </form>
+</div>

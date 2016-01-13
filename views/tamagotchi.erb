@@ -1,0 +1,63 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><small>lil' </small><%= @tamagotchi_name %></h1>
+    </div>
+  </div>
+
+<% if Tamagotchi.is_alive?() %>
+    <div class="row">
+      <div class="col-md-4 panel panel-default">
+        <h1><%= @food_level %></h1>
+        <h5>FOOD</h5>
+      </div>
+
+      <div class="col-md-4 panel panel-default">
+        <h1><%= @sleep_level %></h1>
+        <h5>SLEEP</h5>
+      </div>
+
+      <div class="col-md-4 panel panel-default">
+        <h1><%= @activity_level %></h1>
+        <h5>ACTIVITY</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+        <%= @tamagotchi_name %> is <%= @age %> turns old and has <%= @money %> Tamagotchi tokens to spend.
+      </p>
+      <p>
+        Your Tamagotchi will die if any of these levels drop to zero.
+      </p>
+    </div>
+</div>
+
+<div class="row">
+  <form action="/round" method="post">
+    <div class="col-md-4">
+      <label for="feed">Feed <%= @tamagotchi_name %></label>
+      <input class="form-control" type="number" name="feed" id="feed" placeholder='# of tokens' min="0" step="1">
+    </div>
+
+    <div class="col-md-4">
+      <label for="feed">Make <%= @tamagotchi_name %> take a nap</label>
+      <input class="form-control" type="number" name="nap" id="nap" placeholder='# of tokens' min="0" step="1">
+    </div>
+
+    <div class="col-md-4">
+      <label for="feed">Play with <%= @tamagotchi_name %></label>
+      <input class="form-control" type="number" name="play" id="play" placeholder='# of tokens' min="0" step="1">
+      <br>
+      <button class="btn btn-default" type="submit">Next Round</button>
+    </div>
+  </form>
+</div>
+<% else %>
+  <h1>is dead</h1>
+</div>
+
+<form action="/">
+  <button class="btn btn-default" type="submit" name="play" value="1">Play Again!</button>
+</form>
+<% end %>
